@@ -10,7 +10,7 @@ const CHILI_RED_HEX = "#ce4244"
 
 const BLANKETS = [
     {
-        id: "thumb-mudcloth-and-wool-blanket-77ze8",
+        id: "thumb-carapegua-travel-blanket",
         type: "Travel Blanket",
         name: "Carapuegá",
         colors: [
@@ -38,7 +38,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-mali-carmen-african-mudcloth-yc4a9",
+        id: "thumb-caacupe-travel-blanket",
         type: "Travel Blanket",
         name: "Caacupé",
         colors: [
@@ -74,7 +74,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-red-and-blue-cotton-travel-blanket",
+        id: "thumb-asuncion-travel-blanket",
         type: "Travel Blanket",
         name: "Asunción",
         colors: [
@@ -126,7 +126,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-african-baule-mudcloth-h8mw9",
+        id: "thumb-iguazu-travel-blanket",
         type: "Travel Blanket",
         name: "Iguazú",
         colors: [
@@ -154,7 +154,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-logwood-linen-pestemal-97cn3",
+        id: "thumb-paraguari-travel-blanket",
         type: "Travel Blanket",
         name: "Paraguarí",
         colors: [
@@ -206,7 +206,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-swell-rope-bowl-m3lp3",
+        id: "thumb-encarnacion-travel-blanket",
         type: "Travel Blanket",
         name: "Encarnación",
         colors: [
@@ -266,7 +266,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-dd72mnifukx6alnr822ftusykmc1r5",
+        id: "thumb-caaguazu-travel-blanket",
         type: "Travel Blanket",
         name: "Caaguazú",
         colors: [
@@ -302,7 +302,7 @@ const BLANKETS = [
         ]
     },
     {
-        id: "thumb-indigo-linen-pestemal-cskx9",
+        id: "thumb-ybycui-travel-blanket",
         type: "Travel Blanket",
         name: "Ybycuí",
         colors: [
@@ -345,7 +345,7 @@ const BLANKETS = [
 
 const BANDANAS = [
     {
-        id: "thumb-tame-your-beast",
+        id: "thumb-adventure-days-dog-bandana",
         type: "Pet Bandana",
         name: "Adventure Days",
         colors: [
@@ -365,7 +365,7 @@ const BANDANAS = [
         ]
     },
     {
-        id: "thumb-park-days",
+        id: "thumb-park-days-dog-bandana",
         type: "Pet Bandana",
         name: "Park Days",
         colors: [
@@ -385,7 +385,7 @@ const BANDANAS = [
         ]
     },
     {
-        id: "thumb-lazy-days",
+        id: "thumb-lazy-days-dog-bandana",
         type: "Pet Bandana",
         name: "Lazy Days",
         colors: [
@@ -417,6 +417,7 @@ const BANDANAS = [
 const PRODUCTS = BLANKETS.concat(BANDANAS)
 
 PRODUCTS.forEach(blanket => {
+    console.log("reading for item: ", blanket.name)
     const thumbDiv = document.getElementById(blanket.id)
     const [titleSection] = thumbDiv.getElementsByTagName("section")
     titleSection.style.textAlign = "left"
