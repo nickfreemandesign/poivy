@@ -417,56 +417,59 @@ const BANDANAS = [
 const PRODUCTS = BLANKETS.concat(BANDANAS)
 
 PRODUCTS.forEach(blanket => {
-    console.log("reading for item: ", blanket.name)
-    const thumbDiv = document.getElementById(blanket.id)
-    const [titleSection] = thumbDiv.getElementsByTagName("section")
-    titleSection.style.textAlign = "left"
-
-    const [titleContainer] = titleSection.getElementsByClassName("grid-main-meta")
-    const [title] = titleSection.getElementsByClassName("grid-title")
-
-    const colorSwatchContainer = document.createElement("div")
-    colorSwatchContainer.className = "color-swatch"
-    const { style: swatchStyle } = colorSwatchContainer
-    swatchStyle.display = "flex"
-    swatchStyle.flexDirection = "row"
-
-    const productType = document.createElement("span")
-    const { style: ptStyle } = productType
-    productType.innerText = blanket.type
-    ptStyle.fontSize = "calc((1.6 - 1) * 1.2vh + .3rem)"
-    ptStyle.marginLeft = "10px"
-    title.appendChild(productType)
-
-    const productDetail = document.createElement("p")
-    productDetail.style.margin = "2px 0"
-    const uniqueColors = [...new Set([...blanket.colors.map(({ name }) => name)])]
-    productDetail.innerText = uniqueColors.reduce((colors, color) => {
-        if (colors === "") {
-            colors = color
-        } else {
-            colors = `${colors} / ${color}`
-        }
-        return colors
-    }, "")
-    titleContainer.appendChild(productDetail)
-
-    blanket.colors.forEach((color, idx) => {
-        const colorBlock = document.createElement("div")
-        const { style: cbStyle } = colorBlock
-        cbStyle.width = color.width
-        cbStyle.height = "10px"
-        cbStyle.backgroundColor = color.hex
-        cbStyle.borderTop = "1px solid black"
-        cbStyle.borderBottom = "1px solid black"
-        if (idx === 0 ) {
-            cbStyle.borderLeft = "1px solid black"
-        } else if (idx === blanket.colors.length - 1 ){
-            cbStyle.borderRight = "1px solid black"
-        }
-        colorSwatchContainer.appendChild(colorBlock)
-    })
-
-    titleContainer.appendChild(colorSwatchContainer)
-
+    try {
+        const thumbDiv = document.getElementById(blanket.id)
+        const [titleSection] = thumbDiv.getElementsByTagName("section")
+        titleSection.style.textAlign = "left"
+    
+        const [titleContainer] = titleSection.getElementsByClassName("grid-main-meta")
+        const [title] = titleSection.getElementsByClassName("grid-title")
+    
+        const colorSwatchContainer = document.createElement("div")
+        colorSwatchContainer.className = "color-swatch"
+        const { style: swatchStyle } = colorSwatchContainer
+        swatchStyle.display = "flex"
+        swatchStyle.flexDirection = "row"
+    
+        const productType = document.createElement("span")
+        const { style: ptStyle } = productType
+        productType.innerText = blanket.type
+        ptStyle.fontSize = "calc((1.6 - 1) * 1.2vh + .3rem)"
+        ptStyle.marginLeft = "10px"
+        title.appendChild(productType)
+    
+        const productDetail = document.createElement("p")
+        productDetail.style.margin = "2px 0"
+        const uniqueColors = [...new Set([...blanket.colors.map(({ name }) => name)])]
+        productDetail.innerText = uniqueColors.reduce((colors, color) => {
+            if (colors === "") {
+                colors = color
+            } else {
+                colors = `${colors} / ${color}`
+            }
+            return colors
+        }, "")
+        titleContainer.appendChild(productDetail)
+    
+        blanket.colors.forEach((color, idx) => {
+            const colorBlock = document.createElement("div")
+            const { style: cbStyle } = colorBlock
+            cbStyle.width = color.width
+            cbStyle.height = "10px"
+            cbStyle.backgroundColor = color.hex
+            cbStyle.borderTop = "1px solid black"
+            cbStyle.borderBottom = "1px solid black"
+            if (idx === 0 ) {
+                cbStyle.borderLeft = "1px solid black"
+            } else if (idx === blanket.colors.length - 1 ){
+                cbStyle.borderRight = "1px solid black"
+            }
+            colorSwatchContainer.appendChild(colorBlock)
+        })
+    
+        titleContainer.appendChild(colorSwatchContainer)
+    } catch (e) {
+        console.warn(`product: ${blanket.name} [${blanket.type}]`, e)
+        return
+    }
 })
