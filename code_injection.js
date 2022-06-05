@@ -83,8 +83,8 @@ const BLANKETS = [
                 hex: YELLOW_HEX,
                 width: "10px"
             }, {
-                name: "red",
-                hex: RED_HEX,
+                name: "chili red",
+                hex: CHILI_RED_HEX,
                 width: "30px"
             }, {
                 name: "green",
@@ -103,8 +103,8 @@ const BLANKETS = [
                 hex: GREEN_HEX,
                 width: "20px"
             }, {
-                name: "red",
-                hex: RED_HEX,
+                name: "chili red",
+                hex: CHILI_RED_HEX,
                 width: "10px"
             }, {
                 name: "yellow",
@@ -394,8 +394,8 @@ const BANDANAS = [
                 hex: BLUE_HEX,
                 width: "10px"
             }, {
-                name: "green",
-                hex: GREEN_HEX,
+                name: "lime",
+                hex: LIME_HEX,
                 width: "20px"
             }, {
                 name: "white",
@@ -469,4 +469,3 @@ PRODUCTS.forEach(blanket => {
     titleContainer.appendChild(colorSwatchContainer)
 
 })
-
